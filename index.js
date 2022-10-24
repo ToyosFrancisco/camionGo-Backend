@@ -1,0 +1,23 @@
+'use strict';
+
+// Modules
+require ("dotenv").config();
+
+const {
+    database,
+    server,
+    errorHandler,
+} = require("./loaders");
+
+(async () => {
+    // create db
+    await database.start();
+    await database.generateDefaultSettings();
+
+    // create/init server
+    const app = server.create();
+    await server.start(app);
+
+    // create error handler
+    errorHandler.create();
+})();
