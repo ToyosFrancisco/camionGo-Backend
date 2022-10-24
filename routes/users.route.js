@@ -21,7 +21,7 @@ router.get('/users', rateLimiter, /* jwtAuth */ users.getUsers);
 
 router.post('/users', rateLimiter, /* jwtAuth */ users.createUser);
 
-router.delete('/users', rateLimiter, jwtAuth, users.deleteUser);
+router.delete('/users', rateLimiter, users.deleteUser);
 
 router.put('/me/profile', rateLimiter, users.updateProfile);
 
