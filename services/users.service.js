@@ -116,6 +116,9 @@ exports.editProfile = async (
   id = null,
   data = null
 ) => {
+
+  console.log(data,'data')
+
   if (!id) {
     throw new Error('unidentified user');
   } else if (!data) {
@@ -127,10 +130,13 @@ exports.editProfile = async (
   };
 
   const update = {
-    $set: {
-      username: data.username,
-      firstName: data.firstName,
-      lastName: data.lastName
+    $push: {
+      personal_contact:[
+        {
+          tag:data.personal_contact.tag,
+          phone:data.personal_contact.phone,
+        }
+      ],
     }
   };
 

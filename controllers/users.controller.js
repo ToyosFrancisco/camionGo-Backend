@@ -151,10 +151,10 @@ exports.editUser = async (req, res) => {
  * @route PUT /api/me/profile
  */
 exports.updateProfile = async (req, res) => {
-  const { sub } = req.user;
+  const { id } = req.query
 
   try {
-    const user = await users.updateProfile(sub, req.body);
+    const user = await users.editProfile(id, req.body);
     return res.success(user, 200);
   } catch (ex) {
     console.log('[PUT /api/me/profile updateProfile()] ', ex.message);

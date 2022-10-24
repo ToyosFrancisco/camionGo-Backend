@@ -23,4 +23,6 @@ router.post('/users', rateLimiter, /* jwtAuth */ users.createUser);
 
 router.delete('/users', rateLimiter, jwtAuth, users.deleteUser);
 
+router.put('/me/profile', rateLimiter, users.updateProfile);
+
 module.exports = router;
