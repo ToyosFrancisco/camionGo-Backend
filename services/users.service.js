@@ -38,7 +38,7 @@ exports.update = async (
   } else if (!body) {
     throw new Error('empty body');
   }
-
+  console.log(body)
   const query = {
     _id: id
   };
