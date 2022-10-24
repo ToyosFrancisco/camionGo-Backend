@@ -23,6 +23,8 @@ exports.getAllUsers = async (lean = true) => {
  * @returns new user
  */
 exports.create = async (data = null) => {
+
+  console.log(data,'data')
   if (!data) {
     throw new Error("empty body");
   }
@@ -38,33 +40,7 @@ exports.create = async (data = null) => {
   }
 };
 
-/**
- * @param { String } password
- * @param { Object } data
- * @returns new user
- */
-exports.createSuperAdmin = async () => {
-  const count = await users.countDocuments({
-    userFlag: "MAIN_USER",
-  });
 
-  if (count === 0) {
-    try {
-      return await new users({
-        userFlag: "MAIN_USER",
-        firstName: "Admin",
-        lastName: "Admin",
-        email: "hola@waia.ar",
-        password: "juanJosePaso8540",
-        role: "superAdmin",
-        dni: "854005",
-      }).save();
-    } catch (ex) {
-      throw new Error(ex.message);
-    }
-  }
-  return null;
-};
 
 /**
  * @param { String } password

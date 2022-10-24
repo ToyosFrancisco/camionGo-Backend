@@ -2,7 +2,6 @@
 const mongoose = require("mongoose");
 
 // service
-const cfg = require("../services/configuraciones.service");
 const cfu = require("../services/admins.service")
 
 module.exports = {
@@ -49,18 +48,5 @@ module.exports = {
     );
   },
 
-  async generateDefaultSettings() {
-    // create config document
-    try {
-      await cfg.create();
-    } catch (ex) {
-      console.log("ex ", ex);
-    }
-
-    try {
-      await cfu.createSuperAdmin();
-    } catch (ex) {
-      console.log("ex ", ex);
-    }
-  }
+  
 };

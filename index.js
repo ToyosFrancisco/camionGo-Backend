@@ -12,7 +12,6 @@ const {
 (async () => {
     // create db
     await database.start();
-    await database.generateDefaultSettings();
 
     // create/init server
     const app = server.create();

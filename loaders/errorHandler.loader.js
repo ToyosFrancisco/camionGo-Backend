@@ -9,17 +9,9 @@ module.exports = {
       fs.mkdirSync('./logs');
     }
 
-    // create public folder
-    if (!fs.existsSync('./public')) {
-      console.log('[+] public folder created');
-      fs.mkdirSync('./public');
-    }
+    
 
-    // create image public folder
-    if(!fs.existsSync('./public/imagenes')){
-      console.log('[+] image folder created');
-      fs.mkdirSync('./public/imagenes');
-    }
+   
 
     // error log management
     const errorLogStream = fs.createWriteStream(`${ __dirname }/../logs/error.log`, {
